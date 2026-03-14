@@ -4,11 +4,15 @@ import numpy as np
 import joblib
 import plotly.express as px
 
+artifacts_path = "artifacts" 
+
 # load saved objects
-model = joblib.load("best_churn_model.pkl")
-scaler = joblib.load("scaler.pkl")
-ct = joblib.load("column_transformer.pkl")
-results_df = pd.read_csv("result_df.csv")  # optional, for model accuracy display
+
+model = joblib.load(f"{artifacts_path}/best_churn_model.pkl")
+scaler = joblib.load(f"{artifacts_path}/scaler.pkl")
+ct = joblib.load(f"{artifacts_path}/column_transformer.pkl")
+results_df = pd.read_csv(f"{artifacts_path}/result_df.csv")
+
 
 # page config
 st.set_page_config(page_title="Customer Churn Prediction", layout="wide")
